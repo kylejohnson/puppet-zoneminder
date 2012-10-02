@@ -53,6 +53,11 @@ class zoneminder::install {
     mode => '0550'
   }
 
+  file { "/var/www/zm":
+    ensure => directory,
+    owner => 'www-data',
+    group => 'www-data',
+  }
 
   ## Database ##
 
