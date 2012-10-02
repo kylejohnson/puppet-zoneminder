@@ -9,42 +9,40 @@ class zoneminder::install {
 
   package { "$zoneminder::params::prerequisites":
     ensure => installed,
-    before => File['/usr/local/src/ZoneMinder-1.25.0.tar.gz']
+    before => File['/usr/local/src/zoneminder']
   }
 
-  file { "/usr/local/src/ZoneMinder-1.25.0.tar.gz":
-    ensure => present,
+  file { "/usr/local/src/zoneminder":
+    ensure => directory,
     owner => 'root',
     group => 'root',
-    mode => '0550',
-    source => "puppet:///modules/zoneminder/ZoneMinder-1.25.0.tar.gz",
-    before => Exec["untar-zm"]
+    before => Exec["clone-source"]
   }
 
-  exec { "untar-zm":
-    command => "tar -xf /usr/local/src/ZoneMinder-1.25.0.tar.gz",
+  exec { "clone-source":
+    command => "git clone $zoneminder::params::source zoneminder",
     cwd => "/usr/local/src",
-    creates => "/usr/local/src/ZoneMinder-1.25.0",
+    creates => "/usr/local/src/zoneminder",
     before => Exec["configure-zm"]
   }
 
   exec { "configure-zm":
     command => "./configure $zoneminder::params::configure_options",
-    cwd => "/usr/local/src/ZoneMinder-1.25.0",
-    creates => "/usr/local/src/ZoneMinder-1.25.0/config.log",
+    cwd => "/usr/local/src/zoneminder",
+    creates => "/usr/local/src/zoneminder/config.log",
     before => Exec["make-zm"]
   }
 
   exec { "make-zm":
     command => "make",
-    cwd => "/usr/local/src/ZoneMinder-1.25.0",
+    cwd => "/usr/local/src/zoneminder",
     creates => "",
     before => Exec["make-install-zm"]
   }
 
   exec { "make-install-zm":
     command => "make install",
-    cwd => "/usr/local/src/ZoneMinder.1.25.0",
+    cwd => "/usr/local/src/zoneminder",
     creates => ""
   }
 
