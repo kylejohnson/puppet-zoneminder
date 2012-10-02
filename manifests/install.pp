@@ -46,6 +46,13 @@ class zoneminder::install {
     creates => ""
   }
 
+  file { "/etc/rc.d/zm":
+    source => "puppet:///modules/zoneminder/zm",
+    owner => 'root',
+    group => 'root',
+    mode => '0550'
+  }
+
 
   ## Database ##
 
