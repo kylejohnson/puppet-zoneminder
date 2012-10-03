@@ -26,7 +26,8 @@ class zoneminder::config {
   }
 
   exec { "ldconfig":
-    refreshonly => true
+    refreshonly => true,
+    path => "/sbin"
   }
 
 }
