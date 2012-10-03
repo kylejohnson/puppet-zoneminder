@@ -7,15 +7,12 @@ class zoneminder::install {
   # 4) make the source
   # 5) install the source
 
-  package { "$zoneminder::params::prerequisites":
-    ensure => installed,
-    before => File['/usr/local/src/zoneminder']
+  Exec {
+    path => "/bin:/usr/bin:/usr/local/bin"
   }
 
-  file { "/usr/local/src/zoneminder":
-    ensure => directory,
-    owner => 'root',
-    group => 'root',
+  package { $zoneminder::params::prerequisites:
+    ensure => installed,
     before => Exec["clone-source"]
   }
 
@@ -27,7 +24,7 @@ class zoneminder::install {
   }
 
   exec { "configure-zm":
-    command => "./configure $zoneminder::params::configure_options",
+    command => "/usr/local/src/zoneminder/configure $zoneminder::params::configure_options",
     cwd => "/usr/local/src/zoneminder",
     creates => "/usr/local/src/zoneminder/config.log",
     before => Exec["make-zm"]
@@ -43,20 +40,7 @@ class zoneminder::install {
   exec { "make-install-zm":
     command => "make install",
     cwd => "/usr/local/src/zoneminder",
-    creates => ""
-  }
-
-  file { "/etc/rc.d/zm":
-    source => "puppet:///modules/zoneminder/zm",
-    owner => 'root',
-    group => 'root',
-    mode => '0550'
-  }
-
-  file { "/var/www/zm":
-    ensure => directory,
-    owner => 'www-data',
-    group => 'www-data',
+    creates => "",
   }
 
   ## Database ##

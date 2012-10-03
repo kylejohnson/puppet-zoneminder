@@ -5,7 +5,7 @@ class zoneminder::service {
     enable => true,
     hasrestart => true,
     hasstatus => true,
-    require => File['/etc/rc.d/zm']
+    require => File['/etc/init.d/zm']
   }
 
 }
