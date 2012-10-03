@@ -6,7 +6,7 @@ class zoneminder::install {
 
   package { $zoneminder::params::prerequisites:
     ensure => installed,
-    before => Exec["clone-ffmpeg"],
+    before => Class["zoneminder::install::ffmpeg"]
   }
 
   include zoneminder::install::ffmpeg, zoneminder::install::libjpeg, zoneminder::install::zoneminder  

@@ -3,14 +3,13 @@ class zoneminder::install::libjpeg {
     command => "wget $zoneminder::params::libjpeg_source -O ./libjpeg-turbo-1.1.1_amd64.deb",
     cwd => "/usr/local/src",
     creates => "/usr/local/src/libjpeg-turbo-1.1.1_amd64.deb",
-    before => Package["libjpeg-turbo"],
-    refreshonly => true
   }
 
   package { "libjpeg-turbo":
     provider => dpkg,
     ensure => installed,
     source => "/usr/local/src/libjpeg-turbo-1.1.1_amd64.deb",
+    require => Exec["get-libjpeg"],
     notify => Exec["link-libjpeg"]
   }
 
