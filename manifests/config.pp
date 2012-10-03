@@ -15,4 +15,18 @@ class zoneminder::config {
     require => Class["zoneminder::install"]
   }
 
+  file { "/etc/ld.so.conf.d/zoneminder.conf":
+    ensure => file,
+    source => "puppet:///modules/zoneminder/zoneminder.conf",
+    owner => 'root',
+    group => 'root',
+    mode => 0444,
+    before => Class["zoneminder::install"],
+    notify => Exec["ldconfig"]
+  }
+
+  exec { "ldconfig":
+    refreshonly => true
+  }
+
 }
