@@ -3,8 +3,7 @@ class zoneminder::install::zoneminder {
     command => "git clone $zoneminder::params::zoneminder_source zoneminder",
     cwd => "/usr/local/src",
     creates => "/usr/local/src/zoneminder",
-    before => Exec["configure-zm"],
-    require => Package["libjpeg-turbo"]
+    before => Exec["configure-zm"]
   }
 
   exec { "configure-zm":

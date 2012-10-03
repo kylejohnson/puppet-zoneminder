@@ -33,6 +33,5 @@ class zoneminder::install::ffmpeg {
     command => "make install-libs",
     cwd => "/usr/local/src/ffmpeg",
     refreshonly => true,
-    notify => Exec["get-libjpeg"]
   }
 }
