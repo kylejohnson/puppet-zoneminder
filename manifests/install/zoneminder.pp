@@ -1,7 +1,9 @@
 class zoneminder::install::zoneminder {
 
   exec { "clone-zoneminder":
-    command => "svn co $zoneminder::params::zoneminder_source zoneminder",
+    command => "svn co $zoneminder::params::zoneminder_source zoneminder << EOF
+p
+EOF",
     cwd => "/usr/local/src",
     creates => "/usr/local/src/zoneminder",
     before => File["/usr/local/src/zoneminder/configure.sh"]
