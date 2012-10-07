@@ -10,7 +10,7 @@ EOF",
   }
 
   file { "/usr/local/src/zoneminder/configure.sh":
-    source => "puppet:///modules/zoneminder/configure.sh",
+    content => template("zoneminder/configure.sh.erb"),
     owner => 'root',
     group => 'root',
     mode => 0555,
@@ -36,5 +36,6 @@ EOF",
     command => "make install",
     cwd => "/usr/local/src/zoneminder",
     refreshonly => true,
+    notify => Exec["create-schema"]
   }
 }
