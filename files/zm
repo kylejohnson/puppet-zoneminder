@@ -6,7 +6,7 @@
 #. /etc/rc.d/init.d/functions
 
 prog=ZoneMinder
-ZM_PATH_BIN="/opt/zm/bin"
+ZM_PATH_BIN="/usr/local/bin"
 command="$ZM_PATH_BIN/zmpkg.pl"
 
 start() {
