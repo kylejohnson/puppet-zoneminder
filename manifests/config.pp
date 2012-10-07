@@ -30,4 +30,17 @@ class zoneminder::config {
     path => "/sbin"
   }
 
+  exec { "create-schema":
+    command => "mysql -u root < /usr/local/src/zoneminder/db/zm_create.sql",
+    cwd => "/usr/local/src/zoneminder/db",
+    creates => "/var/lib/mysql/zm",
+    refreshonly => true,
+    notify => Exec["grant-schema-privileges"]
+  }
+
+  exec { "grant-schema-privileges":
+    command => "mysql -u root -e \"grant insert,select,update,delete on zm.* to '$zoneminder::params::zoneminder_db_user'@localhost identified by '$zoneminder::params::zoneminder_db_pass'\"",
+    refreshonly => true
+  }
+
 }

@@ -1,9 +1,4 @@
 class zoneminder::install {
-
-  Exec {
-    path => "/bin:/usr/bin:/usr/local/bin"
-  }
-
   package { $zoneminder::params::prerequisites:
     ensure => installed,
     before => Class["zoneminder::install::ffmpeg"]
