@@ -43,4 +43,13 @@ class zoneminder::config {
     refreshonly => true
   }
 
+  file { "/etc/apache2/sites-enabled/000-default":
+    ensure => file,
+    source => "puppet:///modules/zoneminder/zoneminder",
+    owner => 'root',
+    group => 'root',
+    mode => 0544,
+    require => Package['apache2']
+  }
+
 }
