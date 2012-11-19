@@ -13,15 +13,10 @@ In this case, you'll want to do the following steps on a clean box on which you 
 
  1.  Install a fresh Ubuntu 12.04 server.  I went with a minimal install, but a normal install should work.
  2.  Set up network, SSH, whatever else.
- 3.  Run apt-get update && apt-get install puppet git-core
- 4.  After puppet is installed, clone the repo
-      git clone git://github.com/kylejohnson/puppet-zoneminder.git
- 5.  Do a puppet solo run:
-      sudo puppet apply puppet-zoneminder/manifests/init.pp
+ 3.  apt-get update && apt-get install puppet git-core
+ 4.  git clone git://github.com/kylejohnson/puppet-zoneminder.git zoneminder
+ 5.  sudo puppet apply --verbose -e 'include zoneminder'
  6.  Pray.  Just kidding.  But seriously.  If something breaks, please report it to me (refer to the Troubleshooting / Getting Support section below)
-
-### Puppet Master
-
 
 ## Platforms
  * Ubuntu 12.04
