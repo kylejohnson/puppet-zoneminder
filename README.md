@@ -24,6 +24,7 @@ This module is designed to be used with a puppet solo install.  If you are alrea
  * I'm in #zoneminder on irc.freenode.net as fixxxermet.  Feel free to drop by and ask for help!
 
 ## Issues
+ * I found a bug where ldconfig has not run in the right order, thus none of the zoneminder binaries will start.  After this  module runs, stop zoneminder, run ldconfig as root, and then start zoneminder.
  * Need to add checks for Ubuntu.  This will probably fail misserably on ! Ubuntu
  * Should I use fastcgi and nginx?
  * You will want to manually create a mysql root password after running this module, as the mysql root user does not have a password by default. 
