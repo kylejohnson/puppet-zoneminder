@@ -18,7 +18,7 @@ This module is designed to be used with a puppet solo install.  If you are alrea
 ```bash
 sudo apt-get update && sudo apt-get install puppet git-core -y
 git clone git://github.com/kylejohnson/puppet-zoneminder.git zoneminder
-sudo puppet apply --verbose --modulepath=\`pwd\` -e 'include zoneminder'
+sudo puppet apply --verbose --modulepath=`pwd` -e 'include zoneminder'
 ```
 
 ## Platforms
