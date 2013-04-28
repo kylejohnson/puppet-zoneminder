@@ -36,6 +36,6 @@ EOF",
     command => "make install",
     cwd => "/usr/local/src/zoneminder",
     refreshonly => true,
-    notify => Exec["create-schema"]
+    notify => [ Exec["create-schema"], Exec["ldconfig"] ]
   }
 }
