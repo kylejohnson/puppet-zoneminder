@@ -12,10 +12,14 @@ This module is designed to be used with a puppet solo install.  If you are alrea
 ### Puppet Solo
  1.  Install a fresh Ubuntu 12.04 server.  I went with a minimal install, but a normal install will also work.
  2.  Configure network, SSH, whatever else.
- 3.  apt-get update && apt-get install puppet git-core
- 4.  git clone git://github.com/kylejohnson/puppet-zoneminder.git zoneminder
- 5.  sudo puppet apply --verbose --modulepath=\`pwd\` -e 'include zoneminder'
- 6.  Pray.  Just kidding.  But seriously.  If something breaks, please report it to me (refer to the Troubleshooting / Getting Support section below)
+ 3.  Run the following code.
+ 4.  Pray.  Just kidding.  But seriously.  If something breaks, please report it to me (refer to the Troubleshooting / Getting Support section below)
+
+```bash
+apt-get update && apt-get install puppet git-core
+git clone git://github.com/kylejohnson/puppet-zoneminder.git zoneminder
+sudo puppet apply --verbose --modulepath=\`pwd\` -e 'include zoneminder'
+```
 
 ## Platforms
  * Ubuntu 12.04
