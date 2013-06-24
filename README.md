@@ -29,6 +29,6 @@ sudo puppet apply --verbose --modulepath=`pwd` -e 'include zoneminder'
 
 ## Issues
  * I found a bug where ldconfig has not run in the right order, thus none of the zoneminder binaries will start.  After this  module runs, stop zoneminder, run ldconfig as root, and then start zoneminder.
- * Need to add checks for Ubuntu.  This will probably fail misserably on ! Ubuntu
+ * Need to add checks for Ubuntu.  This module will probably fail misserably on a non-Ubuntu / Debian distro.
  * Should I use fastcgi and nginx?
  * You will want to manually create a mysql root password after running this module, as the mysql root user does not have a password by default. 
