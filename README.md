@@ -9,7 +9,6 @@ After running this module, you will have a working ZoneMinder 1.25.0 install.
 ## How to use - Read Me First!
 This module is designed to be used with a puppet solo install.  If you are already using puppet and have declared mysql, apache, or any of the other prerequisites defined in zoneminder::params, this module will fail to run due to resource declaration issues.
 
-### Puppet Solo
  1.  Install a fresh Ubuntu 12.04 server.  I went with a minimal install, but a normal install will also work.
  2.  Configure network, SSH, whatever else.
  3.  Run the following code.
