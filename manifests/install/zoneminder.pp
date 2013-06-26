@@ -1,11 +1,15 @@
 class zoneminder::install::zoneminder {
 
   exec { "clone-zoneminder":
-    command => "svn co $zoneminder::params::zoneminder_source zoneminder << EOF
-p
-EOF",
+    command => "git clone $zoneminder::params::zoneminder_source zoneminder",
     cwd => "/usr/local/src",
     creates => "/usr/local/src/zoneminder",
+    before => Exec["checkout-kfir-proper"]
+  }
+
+  exec { "checkout-kfir-proper":
+    command => "git checkout kfir-proper",
+    cwd => "/usr/local/src/zoneminder",
     before => File["/usr/local/src/zoneminder/configure.sh"]
   }
 
