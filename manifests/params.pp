@@ -5,7 +5,7 @@ class zoneminder::params {
 
   $prerequisites = ['apache2', 'mysql-server', 'php5', 'php5-mysql', 'build-essential', 'libmysqlclient-dev', 'libssl-dev', 'libbz2-dev', 'libpcre3-dev', 'libdbi-perl', 'libarchive-zip-perl', 'libdate-manip-perl', 'libdevice-serialport-perl', 'libmime-perl', 'libpcre3', 'libwww-perl', 'libdbd-mysql-perl', 'libsys-mmap-perl', 'yasm', 'subversion', 'automake', 'autoconf', 'libjpeg-turbo8-dev', 'libjpeg-turbo8', 'apache2-mpm-prefork', 'libapache2-mod-php5', 'php5-cli']
 
-  $zoneminder_source = 'https://svn.unixmedia.net/public/zum/trunk/zum/'
+  $zoneminder_source = 'https://github.com/ZoneMinder/ZoneMinder.git'
 
   $ffmpeg_source = 'git://source.ffmpeg.org/ffmpeg.git'
   $ffmpeg_configure_options = '--enable-shared --enable-swscale --enable-gpl'
