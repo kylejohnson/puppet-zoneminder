@@ -22,6 +22,7 @@ sudo puppet apply --verbose --modulepath=`pwd` -e 'include zoneminder'
 
 ## Platforms
  * Ubuntu 12.04
+ * Ubuntu 13.04
 
 ## Troubleshooting / Getting Support
  * I'm in #zoneminder on irc.freenode.net as fixxxermet.  Feel free to drop by and ask for help!
