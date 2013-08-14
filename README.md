@@ -2,9 +2,9 @@ puppet-zoneminder
 =================
 
 ## Overview
-A puppet module to completely install ZoneMinder 1.25.0 from source.
+A puppet module to completely install ZoneMinder 1.26.0-beta.1 from source.
 The ZoneMinder source is patched with mastertheknife's performance patch, and nextime's plugin architecture patch, including his licence plate and facial recognition plugins.
-After running this module, you will have a working ZoneMinder 1.25.0 install.
+After running this module, you will have a working ZoneMinder 1.26.0-beta.1 install.
 
 ## How to use - Read Me First!
 This module is designed to be used with a puppet solo install.  If you are already using puppet and have declared mysql, apache, or any of the other prerequisites defined in zoneminder::params, this module will fail to run due to resource declaration issues.
