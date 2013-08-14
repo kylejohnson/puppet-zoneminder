@@ -1,5 +1,9 @@
 #!/bin/bash
 
+libtoolize --force
+aclocal
+autoheader
+automake --force-missing --add-missing
 autoconf
 
 export LD_LIBRARY_PATH="/usr/local/lib:/opt/libjpeg-turbo/lib:$LD_LIBRARY_PATH"
@@ -10,5 +14,3 @@ DEB_BUILD_GNU_TYPE=$(dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 CXXFLAGS=" -DZM_FFMPEG_CVS -DHAVE_LIBCRYPTO  -msse2 -I/usr/local/include"
 
 CXXFLAGS="$CXXFLAGS" ./configure --with-libarch=lib/$DEB_HOST_GNU_TYPE --disable-debug --host=$DEB_HOST_GNU_TYPE --build=$DEB_BUILD_GNU_TYPE --with-mysql=/usr  --with-webdir=/var/www/zm --with-ffmpeg=/usr --with-cgidir=/usr/lib/cgi-bin --with-webuser=www-data --with-webgroup=www-data --enable-crashtrace=no --enable-mmap=yes ZM_SSL_LIB=openssl ZM_DB_USER=zm ZM_DB_PASS=zm
-
-aclocal
