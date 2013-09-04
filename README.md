@@ -3,7 +3,7 @@ puppet-zoneminder
 
 ## Overview
 A puppet module to completely install ZoneMinder 1.26.0-beta.1 from source.
-The ZoneMinder source is patched with mastertheknife's performance patch, and nextime's plugin architecture patch, including his licence plate and facial recognition plugins.
+The ZoneMinder source is patched with mastertheknife's performance patch.
 After running this module, you will have a working ZoneMinder 1.26.0-beta.1 install.
 
 ## How to use - Read Me First!
