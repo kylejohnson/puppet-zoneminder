@@ -4,12 +4,6 @@ class zoneminder::install::zoneminder {
     command => "git clone $zoneminder::params::zoneminder_source zoneminder",
     cwd => "/usr/local/src",
     creates => "/usr/local/src/zoneminder",
-    before => Exec["checkout-release-1.26"]
-  }
-
-  exec { "checkout-release-1.26":
-    command => "git checkout release-1.26",
-    cwd => "/usr/local/src/zoneminder",
     before => File["/usr/local/src/zoneminder/configure.sh"]
   }
 
