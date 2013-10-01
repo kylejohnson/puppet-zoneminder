@@ -2,14 +2,14 @@ puppet-zoneminder
 =================
 
 ## Overview
-A puppet module to completely install ZoneMinder 1.26.0-beta.1 from source.
-The ZoneMinder source is patched with mastertheknife's performance patch.
-After running this module, you will have a working ZoneMinder 1.26.0-beta.1 install.
+A puppet module to completely install ZoneMinder from source.
+After running this module, you will have a working ZoneMinder install
+from the lastest code in the master branch of the ZoneMinder GitHub repo.
 
 ## How to use - Read Me First!
 This module is designed to be used with a puppet solo install.  If you are already using puppet and have declared mysql, apache, or any of the other prerequisites defined in zoneminder::params, this module will fail to run due to resource declaration issues.
 
- 1.  Install a fresh Ubuntu 12.04 server.  I went with a minimal install, but a normal install will also work.
+ 1.  Install a fresh Ubuntu server.  I went with a minimal install, but a normal install will also work.
  2.  Configure network, SSH, whatever else.
  3.  Run the following code.
  4.  Pray.  Just kidding.  But seriously.  If something breaks, please report it to me (refer to the Troubleshooting / Getting Support section below)
