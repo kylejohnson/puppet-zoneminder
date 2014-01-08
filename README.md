@@ -28,6 +28,9 @@ git clone git://github.com/kylejohnson/puppet-zoneminder.git zoneminder
 sudo puppet apply --verbose --modulepath=`pwd` -e 'include zoneminder'
 ```
 
+### Building from another branch
+If you wish to build ZoneMinder from a different branch of code, change the '$zoneminder_branch' variable in params.pp
+
 ## Platforms
  * Ubuntu 12.04
  * Ubuntu 13.04
