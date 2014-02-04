@@ -11,5 +11,5 @@ class zoneminder::params {
   $ffmpeg_configure_options = '--enable-shared --enable-swscale --enable-gpl  --enable-libx264 --enable-libvpx --enable-libvorbis --enable-libtheora'
 
 
-  $libjpeg_source = 'http://downloads.sourceforge.net/project/libjpeg-turbo/1.1.1/libjpeg-turbo_1.1.1_amd64.deb?use_mirror=voxel'
+  $libjpeg_source = 'http://downloads.sourceforge.net/project/libjpeg-turbo/1.2.1/libjpeg-turbo_1.2.1_amd64.deb?use_mirror=voxel'
 }
